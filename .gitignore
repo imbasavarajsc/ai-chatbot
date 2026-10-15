@@ -1,0 +1,35 @@
+
+# Secrets and environment variables
+.env
+**/.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+**/venv/
+.venv/
+**/.venv/
+
+# Node and build files
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+dist-ssr/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor files
+.vscode/
+.idea/
+.DS_Store
