@@ -268,6 +268,8 @@ Keep both the backend and frontend running while using the application.
 
 \*\*Basavaraj\*\*
 
+Deployment update
+
 
 
 GitHub: \[@imbasavarajsc](https://github.com/imbasavarajsc)
