@@ -1,16 +1,22 @@
-
-import { useState, useLayoutEffect, useRef } from "react";
+import { useState, useLayoutEffect, useRef,useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import "./App.css";
 
 function App() {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(() => {
+    const savedMessages = localStorage.getItem("chatMessages");
+    return savedMessages ? JSON.parse(savedMessages) : [];
+  });
   const [prompt, setPrompt] = useState("");
   const [loading, setLoading] = useState(false);
   const [copiedIndex, setCopiedIndex] = useState(null);
+  useEffect(() => {
+    localStorage.setItem("chatMessages", JSON.stringify(messages));
+  }, [messages]);
 
   const messagesContainerRef = useRef(null);
+
 
   // Keep the chat at the bottom when messages or streamed text change.
   useLayoutEffect(() => {
@@ -171,6 +177,7 @@ function App() {
 
     if (window.confirm("Are you sure you want to start a new chat?")) {
       setMessages([]);
+      localStorage.removeItem("chatMessages");
       setPrompt("");
       setCopiedIndex(null);
     }
